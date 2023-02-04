@@ -1,3 +1,4 @@
+# Basic Git Commands
 ## Step 1 (Initialize Repository)
 
 run the command below to initialize the repository. After initializing the repo a hidden .git directory will be created.
@@ -72,5 +73,34 @@ run the command below
 `git clone <git repo url>` (first, fork the repo if this is repo of another user)
 
 
+# Trouble-shooting :-
 
+## Default behavior of `git push` without a branch specified
+
+### To view the current configuration:
+#### `git config push.default`
+
+### To set a new configuration: (You can set up default behavior for your git with push.default)
+#### `git config push.default current`
+
+### If you have many repositories and want the same for all then
+#### `git config --global push.default current`
+
+>The **current** in this setup means that by default you will **only push the current branch** when you do **git push**
+
+Other options are:
+
+-   `nothing`: do not push anything
+-   `matching`: (default before Git 2.0) push all matching branches .\ All branches having the same name in both ends are considered to be matching.
+-   `upstream`: push the current branch to its upstream branch (`tracking` is a deprecated synonym for upstream)
+-   `current`: push the current branch to a branch of the same name
+    
+-   `simple`: (new in Git 1.7.11, default since Git 2.0) like upstream, but refuses to push if the upstream branch's name is different from the local one
+
+	This is the safest option and is well-suited for beginners.
+
+
+> The simple, current and upstream modes are for those who want to push out a single branch after finishing work, even when the other branches are not yet ready to be pushed out
+
+### After doing above things, we can run `git push` normally.
 
